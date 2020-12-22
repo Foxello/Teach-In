@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/index.css">
+    <link rel="stylesheet" href="../style/messanger.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style/normalize.css">
+    <title>Teach-In</title>
+</head>
+<body>
+    <div class="body__wrapper">
+        <header class="messangerHeader">
+            <img src="../images/teach-in v2.4.svg" alt="Teach-In">
+            <div class="messanger__headerKid">
+                <span id="headerUserName"></span>
+                <div class="messanger__headerKid__image"></div>
+                <div class="profileMenu hidden">
+                    <a href="#">My Profile</a>
+                    <a href="#">Settings</a>
+                    <a href="#" id="logOutLink">Log out</a>
+                </div>
+            </div>
+        </header>
+        <div class="messanger">
+            <div class="messanger__userList">
+                    <div class="messanger_userList__searchUser">
+                        <input type="text" placeholder="Найти друга.">
+                        <button class="button" id="findButton">
+                            <img src="../images/loupe.svg" class="buttonIcon" alt="">
+                        </button>
+                    </div>
+                    <div class="messanger_userList__list">
+                    <ul>
+
+                    </ul>
+                    <div class="messangerSearchUserList hidden">
+                        <ul></ul>
+                    </div>
+                    <div class="messangerListRefresh">
+                        <img src="../images/refresh.svg" alt="">
+                    </div>
+
+                </div>
+            </div>
+            <div class="messanger__messageWindow">
+                <div class="messanger__massageWindow__window">
+                    <div class="messanger__massageWindow__messanges">
+                        <ul>
+
+                        </ul>
+                    </div>
+                    <div class="messanger__massageWindow__inputsBlock">
+                        <input type="text" placeholder="Сообщение" id="messangerInput">
+                        <div class="messanger__massageWindow__buttonsBlock">
+                            <button class="button" id="sendButton">
+                                <img src="../images/send.svg" alt="" class="buttonIcon">
+                            </button>
+                            <div class="kidSend">
+                                <button class="button">
+                                    <img src="../images/folder.svg" alt="" class="buttonIcon">
+                                </button>
+                                <button class="button">
+                                    <img src="../images/microphone.svg" alt="" class="buttonIcon">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../scripts/messanger.js"></script>
+    <!--<script src="../scripts/index.js" type="text/babel"></script>-->
+</body>
+</html>
