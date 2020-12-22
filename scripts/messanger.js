@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
         document.location.href = "../html/login.html"
     }
-    let socket = new WebSocket("ws://armacoty.tk:1234");
+    let socket = new WebSocket("wss://armacoty.tk:1234");
     const userName = localStorage.getItem("name");
     document.querySelector("#headerUserName").innerHTML = userName;
     document.querySelector(".messanger__headerKid__image").innerHTML = localStorage.getItem("name")[0].toUpperCase() + localStorage.getItem("last_name")[0].toUpperCase();
