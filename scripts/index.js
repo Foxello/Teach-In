@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded",()=>{
   localStorage.clear()
-  let socket = new WebSocket("ws://armacoty.tk:1234");
+  let socket = new WebSocket("wss://armacoty.tk:1234");
   const form = document.querySelectorAll("form")
 
   form.forEach(el =>{
