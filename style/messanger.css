@@ -2,11 +2,19 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .messanger{
     flex: 1 1 auto;
     display: flex;
+    width: 100vw;
+}
+
+.headerLogo{
+    display: flex;
+    height: 100%;
 }
 
 .messangerHeader{
@@ -26,13 +34,14 @@
 .messanger__headerKid__image{
     height: 50px;
     width: 50px;
-    background-color: deepskyblue;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     font-size: 1.8em;
     cursor: pointer;
+    background-size: contain !important;
+    border: 2px solid #fff;
 }
 
 .profileMenu{
@@ -47,7 +56,7 @@
     top: 70px;
     right: 0;
     border-radius: 0 0 10px 10px;
-    z-index: 10;
+    z-index: 30;
     transition: all 0.2s ease;
 }
 
@@ -94,26 +103,43 @@
     background-color: #EDEBEF;
     display: flex;
     flex-direction: column;
+    position: relative;
+}
+
+.messanger_userList__listWrapper{
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
 }
 
 .messanger_userList__list{
     flex: 1 1 auto;
     position: relative;
-    overflow: scroll;
+    bottom: 0;
+    width: 100%;
 }
 
 .messanger_userList__list > ul{
+    flex: 1 1 auto;
+    position: absolute;
+    overflow-y: scroll;
+    bottom: 0;
     width: 100%;
+    height: 100%;
 }
 
 
 .messanger__massageWindow__messanges > ul{
     width: 95%;
-
+    max-height: 100%;
 }
 
 .messanger__massageWindow__messanges > ul > li.self{
     justify-content: flex-start;
+}
+
+.messanger__massageWindow__messanges > ul > li.self > div{
+    background-color: #9775ff !important;
 }
 
 .messanger__massageWindow__messanges > ul > li.other{
@@ -127,7 +153,9 @@
 }
 
 .messanger__massageWindow__messanges > ul >li > div{
-    width: 40%;
+    max-width: 60%;
+    min-width: 120px;
+    word-wrap: wrapp;
     color: rgb(255, 255, 255);
     background-color:  #602df9;
     padding: 25px 0;
@@ -145,6 +173,8 @@
 
 .messanger__massageWindow__messanges > ul >li >div>*{
     margin-left: 10px;
+    max-width: 90%;
+    word-wrap: break-word;
 }
 
 .buttonIcon{
@@ -170,6 +200,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+.messanger__messageWindow.noneChat::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../images/backgroundChat.svg) #6a3bf5;
+    background-size: 100px;
+    z-index: 1;
 }
 
 .messanger__massageWindow__window{
@@ -189,7 +230,10 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    top: 0;
 }
 
 .messanger__massageWindow__inputsBlock{
@@ -197,6 +241,8 @@
     display: flex;
     align-items: center;
     width: 90%;
+    position: absolute;
+    bottom: 0;
 }
 
 .messanger__massageWindow__inputsBlock > input{
@@ -207,6 +253,7 @@
 }
 
 .messanger_userList__searchUser{
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -293,9 +340,6 @@
     margin-right: 10px;
 }
 
-.kidSend button:first-child{
-    margin-right: 15px;
-}
 
 .messanger__headerKid{
     display: flex;
@@ -314,10 +358,10 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 10;
+    z-index: 30;
 }
 
-.messangerSearchUserList ul{
+.messangerSearchUserList > ul{
     width: 100%;
 }
 
@@ -332,6 +376,7 @@
     color: #000;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     border-bottom: 1px solid rgb(182, 182, 182);
     cursor: pointer;
     position: relative;
@@ -343,8 +388,201 @@
 
 }
 
+.listItem > *{
+    margin: 0 20px;
+}
+
 .messangerSearchUserList ul li span{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.modalWindow{
+    position: absolute;
+    width: 350px;
+    height: 600px;
+    background-color: rgb(255, 255, 255);
+    z-index: 100;
+    transform: scaleY(0);
+    transition: all 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.modalWindow.windowActive{
+    transform: scaleY(1);
+}
+
+.modalWindow__myProfile__image input{
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 15;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+.modalWindow > *{
+    width: 95%;
+    height: 97%;
+    border: 2px solid #602df9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modalWindow__myProfile__image{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background:#602df9;
+    margin: 30px 0;
+    position: relative;
+    cursor: pointer;
+    background-size: contain !important;
+}
+
+.modalWindow__myProfile__image:hover{
+    background: #5222e2;
+
+}
+
+.modalWindow__myProfile__image:hover::after{
+    content: "PHOTO";
+    position: absolute;
+    height: 20%;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+
+
+.modalWindow__myProfile__data{
+    height: 60%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modalWindow__myProfile__data > form{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modalWindow__myProfile__dataBlock{
+    height: 20%;
+    width: 100%;
+    background-color: #602df9;
+    border-bottom: 1px solid#5222e2;
+    font-size: 1.8em;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+
+}
+
+.modalWindow__exitButton{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background-color:#602df9;
+    border: 1px solid  #4716db;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.modalWindow__exitButton:hover{
+    background-color:#e22292;
+}
+
+.modalWindow__myProfile__dataBlock >*{
+    margin: 0 20px;
+}
+
+.modalWindow__myProfile__dataBlock:hover{
+    background-color:  #6f40fb;
+    justify-content: space-between;
+}
+
+.modalWindow__myProfile__dataBlock >img{
+    height: 40%;
+    display: none;
+}
+
+.modalWindow__myProfile__dataBlock::after{
+    content: "<input type="text" name="name">";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.modalWindow__myProfile__dataBlock:hover.modalWindow__myProfile__dataBlock>img{
+    display: block;
+}
+
+.modalWindow__myProfile__dataBlock input{
+    height: 30%;
+    width: 50%;
+    position: relative;
+    z-index: 100;
+}
+
+.modalWindow__myProfile__data button{
+    width: 140px;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.countMes{
+    width: 30px;
+    height: 30px;
+    background-color: rgb(226, 180, 30);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 60px;
+}
+
+@media screen and (max-width:860px){
+    .messanger{
+        position: relative;
+    }
+
+    .messanger__userList{
+        width: 100%;
+        min-width: 200px;
+        position: relative;
+        z-index: 20;
+    }
+
+    .messanger__messageWindow{
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 19;
+    }
+
+    .messanger_userList__searchUser > button{
+        width: 10%;
+    }
 }
